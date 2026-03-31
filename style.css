@@ -1,0 +1,364 @@
+/* ===== VARIÁVEIS DE COR ===== */
+:root {
+  --netflix-black: #0f0f0f;
+  --netflix-dark: #1a1a1a;
+  --netflix-red: #e50914;
+  --netflix-lightgray: #808080;
+  --netflix-white: #ffffff;
+}
+
+body.light-mode {
+  --netflix-black: #fafafa;
+  --netflix-dark: #f5f5f5;
+  --netflix-red: #e50914;
+  --netflix-lightgray: #606060;
+  --netflix-white: #1a1a1a;
+  color: var(--netflix-white);
+  font-weight: 400;
+}
+
+body.light-mode h1 {
+  color: var(--netflix-red);
+  text-shadow: 
+    1px 1px 2px rgba(0, 0, 0, 0.3),
+    2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+body.light-mode h2 {
+  background: #000000;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== RESET E ESTILOS GLOBAIS ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--netflix-black);
+  color: white;
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* ===== MAIN E SEÇÕES ===== */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: linear-gradient(to bottom, var(--netflix-black), var(--netflix-dark));
+}
+
+body.light-mode main {
+  background: linear-gradient(to bottom, #f9f9f9, #e0e0e0);
+}
+
+section {
+  text-align: center;
+  max-width: 900px;
+  width: 100%;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== TÍTULOS ===== */
+h1 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 4rem;
+  font-weight: 700;
+  margin-top: -150px;
+  margin-bottom: 20px;
+  letter-spacing: 15px;
+  color: var(--netflix-red);
+  text-transform: uppercase;
+  animation: slideDown 0.8s ease-out;
+  transform: perspective(1000px) rotateX(3deg);
+  text-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.8),
+    4px 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+h2 {
+  font-size: 3rem;
+  font-weight: 500;
+  margin-bottom: 50px;
+  letter-spacing: 1px;
+  background: white;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: slideDown 0.8s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== LISTA DE PERFIS ===== */
+.profiles {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  list-style: none;
+  flex-wrap: wrap;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+/* ===== PERFIS INDIVIDUAIS ===== */
+.profile {
+  perspective: 1000px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.profile:hover {
+  transform: scale(1.05);
+}
+
+/* ===== BOTÕES DE PERFIL ===== */
+.profile button {
+  background: none;
+  border: 3px solid transparent;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+}
+
+.profile button:hover {
+  transform: translateY(-10px);
+}
+
+.profile button:active {
+  transform: scale(0.95);
+}
+
+/* ===== IMAGENS DE PERFIL ===== */
+.profile img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 20px;
+  transition: all 0.4s ease;
+  border: 3px solid var(--netflix-dark);
+  position: relative;
+  z-index: 1;
+}
+
+.profile button:hover img {
+  border-color: white;
+  filter: brightness(1.1);
+}
+
+body.light-mode .profile button:hover img {
+  border-color: #000000;
+}
+
+/* ===== NOME DO PERFIL ===== */
+.profile span {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--netflix-lightgray);
+  transition: all 0.3s ease;
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  min-width: 180px;
+}
+
+.profile button:hover span {
+  color: var(--netflix-white);
+  font-weight: 600;
+}
+
+/* ===== BOTÃO GERENCIAR PERFIS ===== */
+.manage-profiles {
+  background-color: transparent;
+  color: var(--netflix-lightgray);
+  margin-top: 70px;
+  border: 2px solid var(--netflix-lightgray);
+  border-radius: 0px;
+  padding: 12px 26px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.manage-profiles:hover {
+  filter: brightness(1.05);
+  transform: translateY(-2px);
+}
+
+.manage-profiles:active {
+  transform: translateY(0);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 3.8rem;
+    margin-bottom: 15px;
+    letter-spacing: 10px;
+    transform: perspective(1000px) rotateX(3deg);
+    text-shadow: 
+      2px 2px 3px rgba(0, 0, 0, 0.8),
+      3px 3px 6px rgba(0, 0, 0, 0.6);
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+  }
+
+  .profiles {
+    gap: 20px;
+  }
+
+  .profile img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .profile span {
+    font-size: 0.95rem;
+    min-width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    letter-spacing: 7px;
+    transform: perspective(1000px) rotateX(3deg);
+    text-shadow: 
+      1.5px 1.5px 3px rgba(0, 0, 0, 0.8),
+      3px 3px 6px rgba(0, 0, 0, 0.6);
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+
+  .profiles {
+    gap: 12px;
+  }
+
+  .profile img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile span {
+    font-size: 0.85rem;
+    min-width: 120px;
+  }
+
+  .profile button:hover {
+    transform: translateY(-5px);
+  }
+}
+
+/* ===== ACESSIBILIDADE ===== */
+.profile button:focus-visible {
+  outline: 2px solid var(--netflix-red);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+/* ===== SCROLLBAR CUSTOMIZADO ===== */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--netflix-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--netflix-red);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff4d4d;
+}
+
+/* ===== BOTÃO DE TOGGLE DE TEMA ===== */
+#theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+#theme-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+body.light-mode #theme-toggle {
+  background: #000000;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+body.light-mode #theme-toggle:hover {
+  box-shadow: 0 6px 15px rgba(255, 255, 255, 0.3);
+}
+
+body.light-mode .profile span {
+  color: var(--netflix-lightgray);
+}
+
+body.light-mode .manage-profiles {
+  color: var(--netflix-lightgray);
+  border-color: var(--netflix-lightgray);
+}
